@@ -8,8 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/api")
 public class CoffeeApi {
+
     private CoffeeRepo coffeeRepo;
+
     @Autowired
     public CoffeeApi(CoffeeRepo coffeeRepo) {
         this.coffeeRepo = coffeeRepo;
@@ -41,13 +44,13 @@ public class CoffeeApi {
         }
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void get() {
-        Coffee coffee1 = new Coffee("Prima", "Black");
-        Coffee coffee2 = new Coffee("Czibo", "Black");
-        Coffee coffee3 = new Coffee("Jacobs", "Black");
-        coffeeRepo.save(coffee1);
-        coffeeRepo.save(coffee2);
-        coffeeRepo.save(coffee3);
-    }
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void get() {
+//        Coffee coffee1 = new Coffee("Prima", "Black");
+//        Coffee coffee2 = new Coffee("Czibo", "Black");
+//        Coffee coffee3 = new Coffee("Jacobs", "Black");
+//        coffeeRepo.save(coffee1);
+//        coffeeRepo.save(coffee2);
+//        coffeeRepo.save(coffee3);
+//    }
 }
